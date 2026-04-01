@@ -2,7 +2,8 @@
 
 clear
 
-echo "BetaTask V0.1"
+version="BetaTask V0.2.2"
+echo "$version"
 echo ""
 while true; do
 	echo -n ">>> "
@@ -19,8 +20,7 @@ while true; do
 		clear
 		exit
 	elif [ "$input" == "info" ]; then
-		echo "BetaTask by cwolfe1080"
-		echo "Version V0.1"
+		echo "$version by cwolfe1080"
 		echo "Version date: 04/01/26 MM/DD/YYYY"
 	elif [ "$input" == "temp" ]; then
 		vcgencmd measure_temp
@@ -29,6 +29,6 @@ while true; do
 	
 
 	else
-		echo "Command ''$input' was not recognized"	
+		echo "Command '$input' was not recognized"	
 	fi
 done
