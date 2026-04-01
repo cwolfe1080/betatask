@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V0.3.0"
+version="BetaTask V0.4.0"
 author="cwolfe1080"
 date="04/01/26"
 
@@ -10,8 +10,8 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 clear
-echo -e "${GREEN}$version - Remote Station Online${NC}"
-echo "Type 'help' for available protocols."
+echo -e "${GREEN}$version${NC}"
+echo "Type 'help' for available commands."
 echo ""
 
 while true; do
@@ -21,8 +21,30 @@ while true; do
 
     case "$input" in
         "help")
-            echo "Protocols: help, info, temp, clear, status, log, exit"
+            echo "Commands: help, info, temp, clear, status, log, exit"
+            echo "Type 'help(command_name)' for more information about a command."
             ;;
+        "help(help)")
+        	echo "Displays help info and commands."
+        	;;
+        "help(info)")
+        	echo "Provides basic info about BetaTask."
+        	;;
+        "help(temp)")
+        	echo "Reads the current CPU temperature in Celcius."
+        	;;
+        "help(clear)")
+        	echo "Clears the terminal output."
+        	;;
+        "help(status)")
+        	echo "Provides vital system statistics."
+        	;;
+        "help(log)")
+        	echo "Logs an entry to the system log. Anything that comes after 'log ' will be logged."
+        	;;
+        "help(exit)")
+        	echo "Quits BetaTask"
+        	;;
         "info")
             echo "$version by $author"
             echo "Last Update: $date"
