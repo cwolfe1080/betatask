@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V0.4.0"
+version="BetaTask V0.4.1"
 author="cwolfe1080"
 date="04/01/26"
 
@@ -73,7 +73,7 @@ while true; do
         "") # Do nothing on empty enter
             ;;
         *)
-            echo "Protocol '$input' not recognized. Check 'help'."
+            echo "Command '$input' not recognized. Check 'help'."
             ;;
     esac
 done
