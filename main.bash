@@ -23,7 +23,7 @@ while true; do
 		echo "Version V0.1"
 		echo "Version date: 04/01/26 MM/DD/YYYY"
 	elif [ "$input" == "temp" ]; then
-		echo "Temp is not set up yet"
+		vcgencmd measure_temp
 	elif [ "$input" == "clear" ]; then
 		clear
 	
