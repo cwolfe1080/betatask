@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V0.4.1"
+version="BetaTask V0.4.2"
 author="cwolfe1080"
 date="04/01/26"
 
@@ -60,7 +60,7 @@ while true; do
             ;;
         "log "*) # Matches 'log' followed by anything
             msg="${input#log }"
-            echo "[$(date +%T)] $msg" >> station_log.txt
+            echo "[$(date +%m/%d/%Y) - $(date +%T)] $msg" >> station_log.txt
             echo "Entry recorded."
             ;;
         "clear")
