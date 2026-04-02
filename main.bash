@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V0.4.2"
+version="BetaTask V1.0.0"
 author="cwolfe1080"
 date="04/01/26"
 
@@ -21,7 +21,7 @@ while true; do
 
     case "$input" in
         "help")
-            echo "Commands: help, info, temp, clear, status, log, exit"
+            echo "Commands: help, info, temp, clear, status, log, exit, ping, update"
             echo "Type 'help(command_name)' for more information about a command."
             ;;
         "help(help)")
@@ -45,6 +45,12 @@ while true; do
         "help(exit)")
         	echo "Quits BetaTask"
         	;;
+        "help(ping)")
+        	echo "Pings google (8.8.8.8)"
+        	;;
+        "help(update)")
+        	echo "Runs sudo apt update, sudo apt upgrade, and sudo apt autoremove."
+        	;;
         "info")
             echo "$version by $author"
             echo "Last Update: $date"
@@ -63,6 +69,20 @@ while true; do
             echo "[$(date +%m/%d/%Y) - $(date +%T)] $msg" >> station_log.txt
             echo "Entry recorded."
             ;;
+		"ping")
+			echo "Checking connectivity to Google..."
+			ping -c 3 8.8.8.8 || echo "Network unreachable."
+			;;
+		"update")
+			echo "Updating... (1/3)"
+			sudo apt update
+			echo "Updating... (2/3)"
+			sudo apt upgrade
+			echo "Updating... (3/3)"
+			sudo apt autoremove
+			;;
+
+            
         "clear")
             clear
             ;;
