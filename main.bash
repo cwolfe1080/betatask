@@ -21,7 +21,7 @@ while true; do
 
     case "$input" in
         "help")
-            echo "Commands: help, info, temp, clear, status, log, exit, ping, update, uptime"
+            echo "Commands: help, info, temp, clear, status, log, exit, ping, update, uptime, readlog"
             echo "Type 'help(command_name)' for more information about a command."
             ;;
         "help(help)")
@@ -53,6 +53,9 @@ while true; do
         	;;
         "help(uptime)")
         	echo "Checks how long the system has been running"
+        	;;
+        "help(readlog)")
+        	echo "Reads the contents of the station_log file. Usage 'readlog' reads the last 10 entries 'readlog [number]' reads the specified amount of entries."
         	;;
 
 
@@ -90,6 +93,21 @@ while true; do
 		"uptime")
 			uptime -p
 			;;
+		"readlog"*) # Matches 'readlog' or 'readlog [number]'
+            count="${input#readlog }"
+            # If no number is provided, default to 10
+            if [ "$count" == "readlog" ] || [ -z "$count" ]; then
+                count=10
+            fi
+
+            if [ -f station_log.txt ]; then
+                echo "--- Last $count Log Entries ---"
+                tail -n "$count" station_log.txt
+                echo "----------------------------"
+            else
+                echo "Error: No station_log.txt found."
+            fi
+            ;;
 
             
         "clear")
