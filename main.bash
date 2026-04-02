@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V1.2.0"
+version="BetaTask V1.3.0"
 author="cwolfe1080"
 date="04/01/26"
 
@@ -21,7 +21,7 @@ while true; do
 
     case "$input" in
         "help")
-            echo "Commands: help, info, temp, clear, status, log, exit, ping, update, uptime, readlog"
+            echo "Commands: help, info, temp, clear, status, log, exit, ping, update, uptime, readlog, clrlog"
             echo "Type 'help(command_name)' for more information about a command."
             ;;
         "help(help)")
@@ -57,7 +57,11 @@ while true; do
         "help(readlog)")
         	echo "Reads the contents of the station_log file. Usage 'readlog' reads the last 10 entries 'readlog [number]' reads the specified amount of entries."
         	;;
+        "help(clrlog)")
+        	echo "Completely erases the log."
+        	;;
 
+        	
 
         
         "info")
@@ -108,7 +112,18 @@ while true; do
                 echo "Error: No station_log.txt found."
             fi
             ;;
-
+            "clrlog")
+			echo -n "Are you sure you want to clear the log (y/n): "
+			read -r clrlogAns
+			if [[ "$clrlogAns" == "y" || "$clrlogAns" == "Y" ]]; then
+				true > station_log.txt
+				echo "Log cleared"
+			elif [[ "$clrlogAns" == "n" || "$clrlogAns" == "N" ]]; then
+				echo "Log clearing cancelled"
+			else
+				echo "Invalid response. Log has not been cleared."
+			fi
+			;;
             
         "clear")
             clear
