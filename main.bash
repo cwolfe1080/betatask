@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V1.0.0"
+version="BetaTask V1.1.0"
 author="cwolfe1080"
 date="04/01/26"
 
@@ -21,7 +21,7 @@ while true; do
 
     case "$input" in
         "help")
-            echo "Commands: help, info, temp, clear, status, log, exit, ping, update"
+            echo "Commands: help, info, temp, clear, status, log, exit, ping, update, uptime"
             echo "Type 'help(command_name)' for more information about a command."
             ;;
         "help(help)")
@@ -51,6 +51,12 @@ while true; do
         "help(update)")
         	echo "Runs sudo apt update, sudo apt upgrade, and sudo apt autoremove."
         	;;
+        "help(uptime)")
+        	echo "Checks how long the system has been running"
+        	;;
+
+
+        
         "info")
             echo "$version by $author"
             echo "Last Update: $date"
@@ -80,6 +86,9 @@ while true; do
 			sudo apt upgrade
 			echo "Updating... (3/3)"
 			sudo apt autoremove
+			;;
+		"uptime")
+			uptime -p
 			;;
 
             
