@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V1.1.0"
+version="BetaTask V1.2.0"
 author="cwolfe1080"
 date="04/01/26"
 
