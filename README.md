@@ -9,6 +9,8 @@ The goal of BetaTask is to take the commands and architecture from the CLI-based
  - Raspberry Pi (Debian Linux) (bash)
 ### Systems with an unstable version:
 (none)
+### Systems currently in development:
+ - nrf52840 Express Feather
 ### Systems that I plan to create software for in the future:
  - CircuitPython ESP32
  - PyBadge SAMD21
