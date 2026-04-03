@@ -6,8 +6,9 @@ The goal of BetaTask is to take the commands and architecture from the CLI-based
 
 ## Supported Systems:
 ### Systems with a stable version:
- - Debian/Raspbian/Linux (bash)
+ - Raspberry Pi (Debian Linux) (bash)
 ### Systems with an unstable version:
 (none)
 ### Systems that I plan to create software for in the future:
  - CircuitPython ESP32
+ - PyBadge SAMD21
