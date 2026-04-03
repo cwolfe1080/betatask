@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V1.3.0"
+version="BetaTask V1.3.1"
 author="cwolfe1080"
-date="04/01/26"
+date="04/02/26"
 
 # Visuals (Optional: Adds a subtle terminal glow)
 GREEN='\033[0;32m'
