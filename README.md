@@ -10,7 +10,7 @@ The goal of BetaTask is to take the commands and architecture from the CLI-based
 ### Systems with an unstable version:
 (none)
 ### Systems currently in development:
-(none)
+ - Adafruit NeoTrinkey ATSAMD21
 ### Systems that I plan to create software for in the future:
  - CircuitPython ESP32
  - PyBadge SAMD21
