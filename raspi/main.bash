@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # --- Config ---
-version="BetaTask V1.3.1"
+version="BetaTask V1.4.0"
 author="cwolfe1080"
 date="04/02/26"
 
@@ -21,7 +21,7 @@ while true; do
 
     case "$input" in
         "help")
-            echo "Commands: help, info, temp, clear, status, log, exit, ping, update, uptime, readlog, clrlog"
+            echo "Commands: help, info, temp, clear, status, log, exit, ping, update, uptime, readlog, clrlog, betalink"
             echo "Type 'help(command_name)' for more information about a command."
             ;;
         "help(help)")
@@ -59,6 +59,9 @@ while true; do
         	;;
         "help(clrlog)")
         	echo "Completely erases the log."
+        	;;
+        "help(betalink)")
+        	echo "Opens the BetaLink communication software. Must have python and the following python libraries installed: socket, threading, json."	
         	;;
 
         	
@@ -112,7 +115,7 @@ while true; do
                 echo "Error: No station_log.txt found."
             fi
             ;;
-            "clrlog")
+		"clrlog")
 			echo -n "Are you sure you want to clear the log (y/n): "
 			read -r clrlogAns
 			if [[ "$clrlogAns" == "y" || "$clrlogAns" == "Y" ]]; then
@@ -122,6 +125,20 @@ while true; do
 				echo "Log clearing cancelled"
 			else
 				echo "Invalid response. Log has not been cleared."
+			fi
+			;;
+
+		"betalink")
+			echo "1. Start up BetaLink Client"
+			echo "2. Start up BetaLink Server"
+			echo -n "Enter 1 or 2: "
+			read -r bls
+			if [[ "$bls" == "1" ]]; then
+				python3 betalink/client.py || true
+			elif [[ "$bls" == "2" ]]; then
+				python3 betalink/server.py || true
+			else
+				echo "Invalid response."
 			fi
 			;;
             
