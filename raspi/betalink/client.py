@@ -43,7 +43,12 @@ def start():
                 _, content = cmd.split(" ", 1)
                 user, msg = content.split(":", 1)
                 s.send(json.dumps({"action": "message", "to": user, "msg": msg}).encode())
-        except: print("Invalid command. Example: msg Dave:Hello")
+            elif cmd == "help":
+                print("exit - Quits BetaLink")
+                print("scan - Returns all clients currently connected to the server you are on)
+                print("help - Opens this help menu")
+                print("msg clientName:messsage - The msg command sends another user a message. clientName should be the name of the client you are sending the message to (you can find client names that are online by running scan), and the message should be what you'd like to send to that user.")    
+        except: print("Invalid command.")
     s.close()
 
 if __name__ == "__main__": start()
