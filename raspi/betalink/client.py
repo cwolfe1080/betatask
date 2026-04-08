@@ -18,7 +18,7 @@ def listen(s):
 def start():
     default_ip = "172.18.0.10"
     print("--- BetaLink Client ---")
-    srv = input(f"Server IP [{default_ip}]: ").strip() or default_ip
+    srv = input(f"Server IP [default server: {default_ip}]: ").strip() or default_ip
     
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.settimeout(3)
@@ -26,13 +26,13 @@ def start():
         s.connect((srv, 5000))
         s.settimeout(None)
     except Exception as e:
-        print(f"[!] Fail: {e}"); return
+        print(f"[!] Failed to connect to server {srv}: {e}"); return
 
     name = input("Username: ").strip()
     s.send(json.dumps({"action": "register", "user": name}).encode())
     threading.Thread(target=listen, args=(s,), daemon=True).start()
 
-    print("Type: 'scan', 'msg user:text', or 'exit'")
+    print("Type 'help' for a list of commands")
     while True:
         try:
             cmd = input("BetaLink > ").strip()
